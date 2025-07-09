@@ -1,17 +1,32 @@
+/* --- Reset e basi --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #eee;
   padding: 20px;
+  min-height: 100vh;
+}
+
+/* --- Navigazione --- */
+nav {
+  background-color: rgba(0,0,0,0.6);
+  padding: 15px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  margin-bottom: 40px;
 }
 
 nav ul {
   list-style: none;
-  padding: 0;
   display: flex;
-  gap: 15px;
-  position: relative;
+  gap: 25px;
+  align-items: center;
 }
 
 nav ul li {
@@ -19,26 +34,143 @@ nav ul li {
 }
 
 nav ul li a {
+  color: #fff;
   text-decoration: none;
-  color: #007bff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 8px;
 }
 
 nav ul li a:hover {
+  background-color: #ff5722;
+  color: #fff;
+}
+
+/* Dropdown */
+nav ul li ul.dropdown {
+  display: none;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  background: #222;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+  min-width: 140px;
+  z-index: 100;
+}
+
+nav ul li:hover ul.dropdown {
+  display: block;
+}
+
+nav ul li ul.dropdown li {
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li ul.dropdown li a {
+  display: block;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+nav ul li ul.dropdown li a:hover {
+  background-color: #ff5722;
+}
+
+/* --- Contenuti principali --- */
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+ul.games-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 500px;
+}
+
+ul.games-list li {
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul.games-list li strong {
+  font-size: 1.3rem;
+}
+
+/* Pulsante download */
+a.download-btn {
+  background-color: #ff5722;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 5px 10px rgba(255, 87, 34, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.download-btn:hover {
+  background-color: #e64a19;
+  box-shadow: 0 7px 15px rgba(230, 74, 25, 0.9);
+}
+
+/* Immagini */
+img {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* Paragrafi */
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+/* Link generici */
+a {
+  color: #ff5722;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
   text-decoration: underline;
 }
 
-nav ul .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  flex-direction: column;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 5px;
-  z-index: 10;
-}
-
-nav ul li:hover .dropdown {
-  display: flex;
+/* Responsive */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  ul.games-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
 }
